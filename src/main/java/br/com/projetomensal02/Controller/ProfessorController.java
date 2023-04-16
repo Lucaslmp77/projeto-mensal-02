@@ -48,26 +48,41 @@ public class ProfessorController {
     }
 
     @GetMapping("/curso/{nomeCurso}")
-    public ResponseEntity<List<Professor>> findProfessoresByNomeCurso(@PathVariable("nomeCurso") String nomeCurso){
+    public ResponseEntity<List<Professor>> findProfessoresByNomeCurso(
+            @PathVariable("nomeCurso") String nomeCurso
+    ){
         return ResponseEntity.ok().body(this.professorService.findProfessoresByNomeCurso(nomeCurso));
     }
 
     @GetMapping("/turma/{idTurma}")
-    public ResponseEntity<List<Professor>> findProfessoresByIdTurma(@PathVariable("idTurma") Long idTurma){
+    public ResponseEntity<List<Professor>> findProfessoresByIdTurma(
+            @PathVariable("idTurma") Long idTurma
+    ){
         return ResponseEntity.ok().body(this.professorService.findProfessoresByIdTurma(idTurma));
     }
 
-    @GetMapping("/{nomeProfessor}")
-    public ResponseEntity<List<Professor>> findProfessoresByNome(@PathVariable("nomeProfessor") String nomeProfessor){
+    @GetMapping("/nome/{nomeProfessor}")
+    public ResponseEntity<List<Professor>> findProfessoresByNome(
+            @PathVariable("nomeProfessor") String nomeProfessor
+    ){
         return ResponseEntity.ok().body(this.professorService.findProfessoresByNome(nomeProfessor));
     }
 
-    @GetMapping("/{nomeEspecialidade}")
-    public ResponseEntity<List<Professor>> findProfessoresByEspecialidade(@PathVariable("nomeEspecialidade") String nomeEspecialidade){
+    @GetMapping("/especialidade/{nomeEspecialidade}")
+    public ResponseEntity<List<Professor>> findProfessoresByEspecialidade(
+            @PathVariable("nomeEspecialidade") String nomeEspecialidade
+    ){
         return ResponseEntity.ok().body(this.professorService.findProfessoresByEspecialidade(nomeEspecialidade));
     }
 
-    @DeleteMapping("/{idProfessor}")
+    @GetMapping("/{idProfessor}")
+    public ResponseEntity<Professor> findById(
+            @PathVariable("idProfessor") Long idProfessor
+    ){
+        return ResponseEntity.ok().body(this.professorService.findById(idProfessor));
+    }
+
+    @DeleteMapping("/delete/{idProfessor}")
     public ResponseEntity<?> delete(
             @PathVariable Long idProfessor,
             @RequestBody Professor professor

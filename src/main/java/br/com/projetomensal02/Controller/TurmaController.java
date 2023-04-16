@@ -61,7 +61,7 @@ public class TurmaController {
     }
 
     //Método de desativar turma
-    @DeleteMapping("/disable/{idTurma}")
+    @DeleteMapping("/delete/{idTurma}")
     public ResponseEntity<?> disable(
             @PathVariable Long idTurma
     ) {

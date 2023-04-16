@@ -39,7 +39,7 @@ public class ProfessorService {
     }
 
     @Transactional
-    public void remove(Long id, Professor professor){
+    public void delete(Long id, Professor professor){
         if (id==professor.getId()){
             this.professorRepository.delete(professor);
         } else {

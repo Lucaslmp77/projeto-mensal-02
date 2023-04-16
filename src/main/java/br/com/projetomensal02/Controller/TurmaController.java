@@ -2,7 +2,6 @@ package br.com.projetomensal02.Controller;
 
 import br.com.projetomensal02.Entity.Turma;
 import br.com.projetomensal02.Service.TurmaService;
-import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -43,7 +42,7 @@ public class TurmaController {
     public ResponseEntity<Turma> findById(
             @PathVariable("idTurma") Long idTurma
     ) {
-        return ResponseEntity.ok().body(this.turmaService.findById(turmaService));
+        return ResponseEntity.ok().body(this.turmaService.findById(idTurma));
     }
 
     //Método de atualizar informações da turma
@@ -60,14 +59,15 @@ public class TurmaController {
         }
     }
 
-    //Método de desativar turma
+    //Método de deletar turma
     @DeleteMapping("/delete/{idTurma}")
-    public ResponseEntity<?> disable(
-            @PathVariable Long idTurma
+    public ResponseEntity<?> delete(
+            @PathVariable Long idTurma,
+            @RequestBody Turma turma
     ) {
         try {
-            this.turmaService.delete(idTurma);
-            return ResponseEntity.ok().body("Turma desativada com sucesso!");
+            this.turmaService.delete(idTurma, turma);
+            return ResponseEntity.ok().body("Turma deletada com sucesso!");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -76,7 +76,7 @@ public class TurmaController {
     //Método de buscar turma por semestre
     @GetMapping("/semestre/{idSemestre}")
     public ResponseEntity<?> findTurmaBySemestre(
-            @PathVariable("idSemestre") Long idSemestre
+            @PathVariable("idSemestre") Integer idSemestre
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
     }
@@ -84,7 +84,7 @@ public class TurmaController {
     //Método de buscar turma por ano
     @GetMapping("/ano/{idAno}")
     public ResponseEntity<?> findTurmaByAno(
-            @PathVariable("idAno") Long idAno
+            @PathVariable("idAno") Integer idAno
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
     }

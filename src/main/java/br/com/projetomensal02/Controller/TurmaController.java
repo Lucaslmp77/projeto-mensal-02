@@ -60,14 +60,15 @@ public class TurmaController {
         }
     }
 
-    //Método de desativar turma
+    //Método de deletar turma
     @DeleteMapping("/delete/{idTurma}")
     public ResponseEntity<?> delete(
-            @PathVariable Long idTurma
+            @PathVariable Long idTurma,
+            @RequestBody Turma turma
     ) {
         try {
-            this.turmaService.delete(idTurma);
-            return ResponseEntity.ok().body("Turma desativada com sucesso!");
+            this.turmaService.delete(idTurma, turma);
+            return ResponseEntity.ok().body("Turma deletada com sucesso!");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -76,7 +77,7 @@ public class TurmaController {
     //Método de buscar turma por semestre
     @GetMapping("/semestre/{idSemestre}")
     public ResponseEntity<?> findTurmaBySemestre(
-            @PathVariable("idSemestre") Long idSemestre
+            @PathVariable("idSemestre") Integer idSemestre
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
     }
@@ -84,7 +85,7 @@ public class TurmaController {
     //Método de buscar turma por ano
     @GetMapping("/ano/{idAno}")
     public ResponseEntity<?> findTurmaByAno(
-            @PathVariable("idAno") Long idAno
+            @PathVariable("idAno") Integer idAno
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
     }

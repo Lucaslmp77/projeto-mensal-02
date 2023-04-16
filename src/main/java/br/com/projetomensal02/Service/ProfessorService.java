@@ -27,18 +27,7 @@ public class ProfessorService {
     public Professor findById(Long id) { return this.professorRepository.findById(id).orElse(new Professor());}
 
     @Transactional
-    public Professor save(Professor professor){
-        Assert.isTrue(checkCamposIsNull(professor), "Erro, algum campo do professor é nulo");
-        return this.professorRepository.save(professor);
-    }
-
-    public boolean checkCamposIsNull(Professor professor){
-        if(professor.getNome()==null || professor.getEndereco()==null || professor.getEspecialidade()==null){
-            return false;
-        }else {
-            return true;
-        }
-    }
+    public Professor save(Professor professor){ return this.professorRepository.save(professor); }
 
     @Transactional
     public void update(Long id, Professor professor){

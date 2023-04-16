@@ -73,6 +73,7 @@ public class TurmaController {
         }
     }
 
+    //Método de buscar turma por semestre
     @GetMapping("/semestre/{idSemestre}")
     public ResponseEntity<?> findTurmaBySemestre(
             @PathVariable("idSemestre") Long idSemestre
@@ -80,6 +81,7 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
     }
 
+    //Método de buscar turma por ano
     @GetMapping("/ano/{idAno}")
     public ResponseEntity<?> findTurmaByAno(
             @PathVariable("idAno") Long idAno

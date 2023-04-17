@@ -15,7 +15,7 @@ public class TurmaController {
     @Autowired
     private TurmaService turmaService;
 
-    //Método de cadastrar turma
+    //Método de cadastrar turmas
     @PostMapping
     public ResponseEntity<?> save(
             @RequestBody Turma turma
@@ -28,7 +28,7 @@ public class TurmaController {
         }
     }
 
-    //Método de listar turma
+    //Método de listar turmas
     @GetMapping
     public ResponseEntity<List<Turma>> listAll(
 
@@ -36,7 +36,7 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.listAll());
     }
 
-    //Método de buscar turma por id
+    //Método de buscar turmas por id
 
     @GetMapping("/{idTurma}")
     public ResponseEntity<Turma> findById(
@@ -45,7 +45,7 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findById(idTurma));
     }
 
-    //Método de atualizar informações da turma
+    //Método de atualizar informações da turmas
     @PutMapping("/{idTurma}")
     public ResponseEntity<?> update(
             @PathVariable Long idTurma,
@@ -59,7 +59,7 @@ public class TurmaController {
         }
     }
 
-    //Método de deletar turma
+    //Método de deletar turmas
     @DeleteMapping("/delete/{idTurma}")
     public ResponseEntity<?> delete(
             @PathVariable Long idTurma,
@@ -73,7 +73,7 @@ public class TurmaController {
         }
     }
 
-    //Método de buscar turma por semestre
+    //Método de buscar turmas por semestre
     @GetMapping("/semestre/{idSemestre}")
     public ResponseEntity<?> findTurmaBySemestre(
             @PathVariable("idSemestre") Integer idSemestre
@@ -81,7 +81,7 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
     }
 
-    //Método de buscar turma por ano
+    //Método de buscar turmas por ano
     @GetMapping("/ano/{idAno}")
     public ResponseEntity<?> findTurmaByAno(
             @PathVariable("idAno") Integer idAno

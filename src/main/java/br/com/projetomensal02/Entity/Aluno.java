@@ -23,11 +23,6 @@ public class Aluno extends AbstractEntity {
 
     @ManyToOne
     @Getter @Setter
-    @JoinColumn(name = "id_curso", nullable = true)
-    private Curso curso;
-
-    @ManyToOne
-    @Getter @Setter
     @JoinColumn(name = "id_turma", nullable = true)
     private Turma turma;
 }

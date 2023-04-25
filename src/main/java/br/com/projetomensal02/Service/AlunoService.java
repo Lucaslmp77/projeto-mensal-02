@@ -44,10 +44,6 @@ public class AlunoService {
         }
     }
 
-    public List<Aluno> findAlunoByNomeCurso(String nomeCurso) {
-        return this.alunoRepository.findAlunoByNomeCurso(nomeCurso);
-    }
-
     public List<Aluno> findAlunoByIdTurma(Long idTurma) {
         return this.alunoRepository.findAlunoByIdTurma(idTurma);
     }

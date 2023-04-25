@@ -74,14 +74,6 @@ public class AlunoController {
         }
     }
 
-    //Método de buscar aluno por curso
-    @GetMapping("/curso/{nomeCurso}")
-    public ResponseEntity<?> findAlunoByNomeCurso(
-            @PathVariable("nomeCurso") String nomeCurso
-    ) {
-        return ResponseEntity.ok().body(this.alunoService.findAlunoByNomeCurso(nomeCurso));
-    }
-
     //Método de buscar aluno por nome
     @GetMapping("/nome/{nome}")
     public ResponseEntity<?> findAlunoByNome(

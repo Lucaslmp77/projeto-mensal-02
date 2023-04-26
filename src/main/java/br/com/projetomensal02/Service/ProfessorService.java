@@ -16,8 +16,6 @@ public class ProfessorService {
 
     public List<Professor> listAll(){ return this.professorRepository.findAll(); }
 
-    public List<Professor> findProfessoresByNomeCurso(String nomeCurso){ return this.professorRepository.findProfessoresByNomeCurso(nomeCurso); }
-
     public List<Professor> findProfessoresByIdTurma(Long idTurma){ return this.professorRepository.findProfessoresByIdTurma(idTurma); }
 
     public List<Professor> findProfessoresByNome(String nomeProfessor){ return this.professorRepository.findProfessoresByNome(nomeProfessor); }

@@ -47,12 +47,7 @@ public class ProfessorController {
         return ResponseEntity.ok().body(this.professorService.listAll());
     }
 
-    @GetMapping("/curso/{nomeCurso}")
-    public ResponseEntity<List<Professor>> findProfessoresByNomeCurso(
-            @PathVariable("nomeCurso") String nomeCurso
-    ){
-        return ResponseEntity.ok().body(this.professorService.findProfessoresByNomeCurso(nomeCurso));
-    }
+
 
     @GetMapping("/turma/{idTurma}")
     public ResponseEntity<List<Professor>> findProfessoresByIdTurma(

@@ -10,8 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {
-    @Query("FROM Professor professor WHERE professor.curso.nome = :nomeCurso")
-    public List<Professor> findProfessoresByNomeCurso(@Param("nomeCurso") String nomeCurso);
+
 
     @Query("FROM Professor professor WHERE professor.turma.id = :idTurma")
     public List<Professor> findProfessoresByIdTurma(@Param("idTurma") Long idTurma);

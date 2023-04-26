@@ -5,7 +5,7 @@ import br.com.projetomensal02.Repository.ProfessorRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
+
 
 import java.util.List;
 
@@ -15,8 +15,6 @@ public class ProfessorService {
     private ProfessorRepository professorRepository;
 
     public List<Professor> listAll(){ return this.professorRepository.findAll(); }
-
-    public List<Professor> findProfessoresByNomeCurso(String nomeCurso){ return this.professorRepository.findProfessoresByNomeCurso(nomeCurso); }
 
     public List<Professor> findProfessoresByIdTurma(Long idTurma){ return this.professorRepository.findProfessoresByIdTurma(idTurma); }
 

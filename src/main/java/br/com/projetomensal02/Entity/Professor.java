@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-import java.util.Set;
-
 @Entity
 @Table(name = "tb_professor", schema = "projeto-mensal-02")
 public class Professor extends AbstractEntity {
@@ -24,11 +21,6 @@ public class Professor extends AbstractEntity {
     @Setter
     @Column(name = "especialidade", length = 30, nullable = false)
     private String especialidade;
-
-    @ManyToOne
-    @Getter @Setter
-    @JoinColumn(name = "id_curso", nullable = true)
-    private Curso curso;
 
     @ManyToOne
     @Getter @Setter

@@ -16,7 +16,7 @@ import java.util.List;
 public class AlunoController {
     @Autowired
     private AlunoService alunoService;
-    //Método de cadastrar alunos
+
     @PostMapping
     public ResponseEntity<?> save(
             @RequestBody Aluno aluno
@@ -29,7 +29,7 @@ public class AlunoController {
         }
     }
 
-    //Método de listar alunos
+
     @GetMapping
     public ResponseEntity<List<Aluno>> listAll(
 
@@ -37,7 +37,7 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.listAll());
     }
 
-    //Método de buscar alunos por id
+
     @GetMapping("/{idAluno}")
     public ResponseEntity<Aluno> findById(
             @PathVariable("idAluno") Long idAluno
@@ -45,7 +45,7 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.findById(idAluno));
     }
 
-    //Método de atualizar informações da aluno
+
     @PutMapping("/{idAluno}")
     public ResponseEntity<?> update(
             @PathVariable Long idAluno,
@@ -59,7 +59,7 @@ public class AlunoController {
         }
     }
 
-    //Método de deletar alunos
+
     @DeleteMapping("/delete/{idAluno}")
     public ResponseEntity<?> delete(
             @PathVariable Long idAluno,
@@ -73,7 +73,7 @@ public class AlunoController {
         }
     }
 
-    //Método de buscar aluno por nome
+
     @GetMapping("/nome/{nome}")
     public ResponseEntity<?> findAlunoByNome(
             @PathVariable("nome") String nome
@@ -81,11 +81,4 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.findAlunoByNome(nome));
     }
 
-    //Método de buscar aluno por id da turma
-    @GetMapping("/turma/{idTurma}")
-    public ResponseEntity<?> findAlunoByIdTurma(
-            @PathVariable("idTurma") Long idTurma
-    ){
-        return ResponseEntity.ok().body(this.alunoService.findAlunoByIdTurma(idTurma));
-    }
 }

@@ -11,9 +11,6 @@ import java.util.List;
 @Repository
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
-    @Query("FROM Aluno aluno WHERE aluno.turma.id = :idTurma")
-    public List<Aluno> findAlunoByIdTurma(@Param("idTurma") Long idTurma);
-
     @Query("FROM Aluno aluno WHERE aluno.nome = :nomeAluno")
     public List<Aluno> findAlunoByNome(@Param("nomeAluno") String nomeAluno);
 }

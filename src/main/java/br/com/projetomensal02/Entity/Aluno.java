@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 
 @Entity
 @Table(name = "tb_aluno", schema = "projeto-mensal-02")
@@ -21,8 +20,4 @@ public class Aluno extends AbstractEntity {
     @Column(name = "endereco", length = 30, nullable = false)
     private String endereco;
 
-    @ManyToOne
-    @Getter @Setter
-    @JoinColumn(name = "id_turma", nullable = true)
-    private Turma turma;
 }

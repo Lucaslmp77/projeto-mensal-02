@@ -43,11 +43,6 @@ public class AlunoService {
             throw new RuntimeException();
         }
     }
-
-    public List<Aluno> findAlunoByIdTurma(Long idTurma) {
-        return this.alunoRepository.findAlunoByIdTurma(idTurma);
-    }
-
     public List<Aluno> findAlunoByNome(String nomeAluno) {
         return this.alunoRepository.findAlunoByNome(nomeAluno);
     }

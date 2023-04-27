@@ -4,7 +4,6 @@ import br.com.projetomensal02.Entity.Professor;
 import br.com.projetomensal02.Service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,12 +46,6 @@ public class ProfessorController {
         return ResponseEntity.ok().body(this.professorService.listAll());
     }
 
-    @GetMapping("/turma/{idTurma}")
-    public ResponseEntity<List<Professor>> findProfessoresByIdTurma(
-            @PathVariable("idTurma") Long idTurma
-    ){
-        return ResponseEntity.ok().body(this.professorService.findProfessoresByIdTurma(idTurma));
-    }
 
     @GetMapping("/nome/{nomeProfessor}")
     public ResponseEntity<List<Professor>> findProfessoresByNome(

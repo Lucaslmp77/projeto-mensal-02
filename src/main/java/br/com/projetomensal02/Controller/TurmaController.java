@@ -1,5 +1,6 @@
 package br.com.projetomensal02.Controller;
 
+import br.com.projetomensal02.Entity.Professor;
 import br.com.projetomensal02.Entity.Turma;
 import br.com.projetomensal02.Service.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,5 +88,19 @@ public class TurmaController {
             @PathVariable("idAno") Integer idAno
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
+    }
+
+    //Método de buscar professor por curso
+    @GetMapping("/professor/curso/{nomeCurso}")
+    public ResponseEntity<?> findProfessoresByNomeCurso(@PathVariable("nomeCurso") String nomeCurso){
+        return ResponseEntity.ok().body(this.turmaService.findProfessoresByNomeCurso(nomeCurso));
+    }
+
+    //Método de buscar aluno por curso
+    @GetMapping("/aluno/curso/{nomeCurso}")
+    public ResponseEntity<?> findAlunoByNomeCurso(
+            @PathVariable("nomeCurso") String nomeCurso
+    ) {
+        return ResponseEntity.ok().body(this.turmaService.findAlunoByNomeCurso(nomeCurso));
     }
 }

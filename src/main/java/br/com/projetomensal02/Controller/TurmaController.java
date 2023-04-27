@@ -1,11 +1,10 @@
 package br.com.projetomensal02.Controller;
 
-import br.com.projetomensal02.Entity.Professor;
+
 import br.com.projetomensal02.Entity.Turma;
 import br.com.projetomensal02.Service.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public class TurmaController {
     @Autowired
     private TurmaService turmaService;
 
-    //Método de cadastrar turmas
     @PostMapping
     public ResponseEntity<?> save(
             @RequestBody Turma turma
@@ -29,15 +27,12 @@ public class TurmaController {
         }
     }
 
-    //Método de listar turmas
     @GetMapping
     public ResponseEntity<List<Turma>> listAll(
 
     ) {
         return ResponseEntity.ok().body(this.turmaService.listAll());
     }
-
-    //Método de buscar turmas por id
 
     @GetMapping("/{idTurma}")
     public ResponseEntity<Turma> findById(
@@ -46,7 +41,6 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findById(idTurma));
     }
 
-    //Método de atualizar informações da turmas
     @PutMapping("/{idTurma}")
     public ResponseEntity<?> update(
             @PathVariable Long idTurma,
@@ -60,7 +54,6 @@ public class TurmaController {
         }
     }
 
-    //Método de deletar turmas
     @DeleteMapping("/delete/{idTurma}")
     public ResponseEntity<?> delete(
             @PathVariable Long idTurma,
@@ -74,7 +67,6 @@ public class TurmaController {
         }
     }
 
-    //Método de buscar turmas por semestre
     @GetMapping("/semestre/{idSemestre}")
     public ResponseEntity<?> findTurmaBySemestre(
             @PathVariable("idSemestre") Integer idSemestre
@@ -82,7 +74,6 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
     }
 
-    //Método de buscar turmas por ano
     @GetMapping("/ano/{idAno}")
     public ResponseEntity<?> findTurmaByAno(
             @PathVariable("idAno") Integer idAno
@@ -90,13 +81,11 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
     }
 
-    //Método de buscar professor por curso
     @GetMapping("/professor/curso/{nomeCurso}")
     public ResponseEntity<?> findProfessoresByNomeCurso(@PathVariable("nomeCurso") String nomeCurso){
         return ResponseEntity.ok().body(this.turmaService.findProfessoresByNomeCurso(nomeCurso));
     }
 
-    //Método de buscar aluno por curso
     @GetMapping("/aluno/curso/{nomeCurso}")
     public ResponseEntity<?> findAlunoByNomeCurso(
             @PathVariable("nomeCurso") String nomeCurso

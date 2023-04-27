@@ -3,7 +3,6 @@ package br.com.projetomensal02.Service;
 import br.com.projetomensal02.Entity.Aluno;
 import br.com.projetomensal02.Entity.Professor;
 import br.com.projetomensal02.Entity.Turma;
-import br.com.projetomensal02.Repository.AlunoRepository;
 import br.com.projetomensal02.Repository.TurmaRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

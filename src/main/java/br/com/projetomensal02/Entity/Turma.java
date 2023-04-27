@@ -17,14 +17,20 @@ public class Turma extends AbstractEntity {
     private Integer ano;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @Getter
+    @Setter
     @JoinColumn(name="id_aluno")
     private Aluno aluno;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @Getter
+    @Setter
     @JoinColumn(name="id_professor")
     private Professor professor;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @Getter
+    @Setter
     @JoinColumn(name="id_curso")
     private Curso curso;
 }

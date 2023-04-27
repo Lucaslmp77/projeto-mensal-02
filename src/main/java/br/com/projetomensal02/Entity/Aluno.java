@@ -20,8 +20,4 @@ public class Aluno extends AbstractEntity {
     @Column(name = "endereco", length = 30, nullable = false)
     private String endereco;
 
-    @ManyToOne
-    @Getter @Setter
-    @JoinColumn(name = "id_turma", nullable = true)
-    private Turma turma;
 }

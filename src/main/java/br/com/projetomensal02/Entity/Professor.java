@@ -22,8 +22,5 @@ public class Professor extends AbstractEntity {
     @Column(name = "especialidade", length = 30, nullable = false)
     private String especialidade;
 
-    @ManyToOne
-    @Getter @Setter
-    @JoinColumn(name = "id_turma", nullable = true)
-    private Turma turma;
+
 }

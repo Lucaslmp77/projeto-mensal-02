@@ -38,7 +38,6 @@ public class AlunoController {
     }
 
     //Método de buscar alunos por id
-
     @GetMapping("/{idAluno}")
     public ResponseEntity<Aluno> findById(
             @PathVariable("idAluno") Long idAluno
@@ -80,5 +79,13 @@ public class AlunoController {
             @PathVariable("nome") String nome
     ) {
         return ResponseEntity.ok().body(this.alunoService.findAlunoByNome(nome));
+    }
+
+    //Método de buscar aluno por id da turma
+    @GetMapping("/turma/{idTurma}")
+    public ResponseEntity<?> findAlunoByIdTurma(
+            @PathVariable("idTurma") Long idTurma
+    ){
+        return ResponseEntity.ok().body(this.alunoService.findAlunoByIdTurma(idTurma));
     }
 }

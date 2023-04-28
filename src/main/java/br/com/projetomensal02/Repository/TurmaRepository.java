@@ -17,10 +17,4 @@ public interface TurmaRepository extends JpaRepository<Turma, Long> {
 
     @Query("FROM Turma turma WHERE turma.ano = :ano")
     public List<Turma> findTurmaByAno(@Param("ano") Integer ano);
-
-    @Query("FROM Professor professor WHERE professor.turma.curso.nome = :nomeCurso")
-    public List<Professor> findProfessoresByNomeCurso(@Param("nomeCurso") String nomeCurso);
-
-    @Query("FROM Aluno aluno WHERE aluno.turma.curso.nome = :nomeCurso")
-    public List<Aluno> findAlunoByNomeCurso(@Param("nomeCurso") String nomeCurso);
 }

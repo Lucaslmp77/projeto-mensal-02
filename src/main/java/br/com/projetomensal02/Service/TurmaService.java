@@ -30,6 +30,10 @@ public class TurmaService {
         return this.professorRepository.findAllProfessorByCurso(nomeCurso);
     }
 
+    public List<Professor> findAllProfessorByAnoTurma(Integer anoTurma) {
+        return this.professorRepository.findAllProfessorByAnoTurma(anoTurma);
+    }
+
     @Transactional
     public Turma save(Turma turma){ return this.turmaRepository.save(turma);}
 

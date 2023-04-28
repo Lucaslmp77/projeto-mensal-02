@@ -1,8 +1,6 @@
 package br.com.projetomensal02.Service;
 
-import br.com.projetomensal02.Entity.Professor;
 import br.com.projetomensal02.Entity.Turma;
-import br.com.projetomensal02.Repository.ProfessorRepository;
 import br.com.projetomensal02.Repository.TurmaRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +13,6 @@ public class TurmaService {
     @Autowired
     private TurmaRepository turmaRepository;
 
-    @Autowired
-    private ProfessorRepository professorRepository;
-
     public List<Turma> listAll(){ return this.turmaRepository.findAll(); }
 
     public Turma findById(Long id){ return this.turmaRepository.findById(id).orElse(new Turma()); }
@@ -25,26 +20,6 @@ public class TurmaService {
     public List<Turma> findTurmaBySemestre(Integer semestre){ return this.turmaRepository.findTurmaBySemestre(semestre); }
 
     public List<Turma> findTurmaByAno(Integer ano){ return this.turmaRepository.findTurmaByAno(ano); }
-
-    public List<Professor> findAllProfessorByCurso(String nomeCurso) {
-        return this.professorRepository.findAllProfessorByCurso(nomeCurso);
-    }
-
-    public List<Professor> findAllProfessorBySiglaCurso(String siglaCurso) {
-        return this.professorRepository.findAllProfessorBySiglaCurso(siglaCurso);
-    }
-
-    public List<Professor> findAllProfessorBySemestreTurma(Integer semestreTurma) {
-        return this.professorRepository.findAllProfessorBySemestreTurma(semestreTurma);
-    }
-
-    public List<Professor> findAllProfessorByAnoTurma(Integer anoTurma) {
-        return this.professorRepository.findAllProfessorByAnoTurma(anoTurma);
-    }
-
-    public List<Professor> findAllProfessorByCursoAndTurma(String nomeCurso, Integer anoTurma) {
-        return this.professorRepository.findAllProfessorByCursoAndTurma(nomeCurso, anoTurma);
-    }
 
     @Transactional
     public Turma save(Turma turma){ return this.turmaRepository.save(turma);}
@@ -66,5 +41,4 @@ public class TurmaService {
             throw new RuntimeException();
         }
     }
-
 }

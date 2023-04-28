@@ -1,7 +1,6 @@
 package br.com.projetomensal02.Controller;
 
 
-import br.com.projetomensal02.Entity.Professor;
 import br.com.projetomensal02.Entity.Turma;
 import br.com.projetomensal02.Service.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,42 +53,6 @@ public class TurmaController {
             @PathVariable("idAno") Integer idAno
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
-    }
-
-    @GetMapping("/professor/curso/{nomeCurso}")
-    public ResponseEntity<?> findAllProfessorByCurso(
-            @PathVariable("nomeCurso") String nomeCurso
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findAllProfessorByCurso(nomeCurso));
-    }
-
-    @GetMapping("/professor/sigla/{siglaCurso}")
-    public ResponseEntity<?> findAllProfessorBySiglaCurso(
-            @PathVariable("siglaCurso") String siglaCurso
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findAllProfessorBySiglaCurso(siglaCurso));
-    }
-
-    @GetMapping("/professor/semestre/{semestreTurma}")
-    public ResponseEntity<?> findAllProfessorBySemestreTurma(
-            @PathVariable("semestreTurma") Integer semestreTurma
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findAllProfessorBySemestreTurma(semestreTurma));
-    }
-
-    @GetMapping("/professor/ano/{anoTurma}")
-    public ResponseEntity<?> findAllProfessorByAnoTurma(
-            @PathVariable("anoTurma") Integer anoTurma
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findAllProfessorByAnoTurma(anoTurma));
-    }
-
-    @GetMapping("/professor/cursoAndTurma/{nomeCurso}/{anoTurma}")
-    public ResponseEntity<?> findAllProfessorByCursoAndTurma(
-            @PathVariable("nomeCurso") String nomeCurso,
-            @PathVariable("anoTurma") Integer anoTurma
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findAllProfessorByCursoAndTurma(nomeCurso, anoTurma));
     }
 
     @PutMapping("/{idTurma}")

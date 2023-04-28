@@ -22,6 +22,10 @@ public interface ProfessorRepository extends JpaRepository<Professor, Long> {
     public List<Professor> findAllProfessorByCurso(@Param("nomeCurso")String nomeCurso);
 
     @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
+            "WHERE turma.curso.sigla = :siglaCurso")
+    public List<Professor> findAllProfessorBySiglaCurso(@Param("siglaCurso")String siglaCurso);
+
+    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
             "WHERE turma.semestre = :semestreTurma")
     public List<Professor> findAllProfessorBySemestreTurma(@Param("semestreTurma")Integer semestreTurma);
 

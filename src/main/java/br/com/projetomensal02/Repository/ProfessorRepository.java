@@ -32,4 +32,8 @@ public interface ProfessorRepository extends JpaRepository<Professor, Long> {
     @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
             "WHERE turma.ano = :anoTurma")
     public List<Professor> findAllProfessorByAnoTurma(@Param("anoTurma")Integer anoTurma);
+
+    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
+            "WHERE turma.curso.nome = :nomeCurso AND turma.ano = :anoTurma")
+    public List<Professor> findAllProfessorByCursoAndTurma(String nomeCurso, Integer anoTurma);
 }

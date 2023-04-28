@@ -84,6 +84,14 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findAllProfessorByAnoTurma(anoTurma));
     }
 
+    @GetMapping("/professor/cursoAndTurma/{nomeCurso}/{anoTurma}")
+    public ResponseEntity<?> findAllProfessorByCursoAndTurma(
+            @PathVariable("nomeCurso") String nomeCurso,
+            @PathVariable("anoTurma") Integer anoTurma
+    ) {
+        return ResponseEntity.ok().body(this.turmaService.findAllProfessorByCursoAndTurma(nomeCurso, anoTurma));
+    }
+
     @PutMapping("/{idTurma}")
     public ResponseEntity<?> update(
             @PathVariable Long idTurma,

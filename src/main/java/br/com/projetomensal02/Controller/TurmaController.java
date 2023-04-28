@@ -41,20 +41,6 @@ public class TurmaController {
         return ResponseEntity.ok().body(this.turmaService.findById(idTurma));
     }
 
-    @GetMapping("/semestre/{idSemestre}")
-    public ResponseEntity<?> findTurmaBySemestre(
-            @PathVariable("idSemestre") Integer idSemestre
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
-    }
-
-    @GetMapping("/ano/{idAno}")
-    public ResponseEntity<?> findTurmaByAno(
-            @PathVariable("idAno") Integer idAno
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
-    }
-
     @PutMapping("/{idTurma}")
     public ResponseEntity<?> update(
             @PathVariable Long idTurma,
@@ -79,5 +65,19 @@ public class TurmaController {
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+    @GetMapping("/semestre/{idSemestre}")
+    public ResponseEntity<?> findTurmaBySemestre(
+            @PathVariable("idSemestre") Integer idSemestre
+    ) {
+        return ResponseEntity.ok().body(this.turmaService.findTurmaBySemestre(idSemestre));
+    }
+
+    @GetMapping("/ano/{idAno}")
+    public ResponseEntity<?> findTurmaByAno(
+            @PathVariable("idAno") Integer idAno
+    ) {
+        return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
     }
 }

@@ -17,10 +17,6 @@ public class TurmaService {
 
     public Turma findById(Long id){ return this.turmaRepository.findById(id).orElse(new Turma()); }
 
-    public List<Turma> findTurmaBySemestre(Integer semestre){ return this.turmaRepository.findTurmaBySemestre(semestre); }
-
-    public List<Turma> findTurmaByAno(Integer ano){ return this.turmaRepository.findTurmaByAno(ano); }
-
     @Transactional
     public Turma save(Turma turma){ return this.turmaRepository.save(turma);}
 
@@ -41,4 +37,8 @@ public class TurmaService {
             throw new RuntimeException();
         }
     }
+
+    public List<Turma> findTurmaBySemestre(Integer semestre){ return this.turmaRepository.findTurmaBySemestre(semestre); }
+
+    public List<Turma> findTurmaByAno(Integer ano){ return this.turmaRepository.findTurmaByAno(ano); }
 }

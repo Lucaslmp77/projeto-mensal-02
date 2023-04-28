@@ -33,7 +33,7 @@ public class Curso extends AbstractEntity {
             throw new RuntimeException("O nome do curso inserido é muito curto");
         } else if (nome.trim().length() > 25) {
             throw new RuntimeException("O nome do curso inserido ultrapassa o limite máximo");
-        } {
+        } else {
             this.nome = nome;
         }
     }

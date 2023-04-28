@@ -80,16 +80,4 @@ public class TurmaController {
     ) {
         return ResponseEntity.ok().body(this.turmaService.findTurmaByAno(idAno));
     }
-
-    @GetMapping("/professor/curso/{nomeCurso}")
-    public ResponseEntity<?> findProfessoresByNomeCurso(@PathVariable("nomeCurso") String nomeCurso){
-        return ResponseEntity.ok().body(this.turmaService.findProfessoresByNomeCurso(nomeCurso));
-    }
-
-    @GetMapping("/aluno/curso/{nomeCurso}")
-    public ResponseEntity<?> findAlunoByNomeCurso(
-            @PathVariable("nomeCurso") String nomeCurso
-    ) {
-        return ResponseEntity.ok().body(this.turmaService.findAlunoByNomeCurso(nomeCurso));
-    }
 }

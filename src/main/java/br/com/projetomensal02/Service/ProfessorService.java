@@ -16,9 +16,13 @@ public class ProfessorService {
 
     public List<Professor> listAll(){ return this.professorRepository.findAll(); }
 
-    public List<Professor> findProfessoresByNome(String nomeProfessor){ return this.professorRepository.findProfessoresByNome(nomeProfessor); }
+    public List<Professor> findProfessoresByNome(String nomeProfessor){
+        return this.professorRepository.findProfessoresByNome(nomeProfessor);
+    }
 
-    public List<Professor> findProfessoresByEspecialidade(String nomeEspecialidade){ return this.professorRepository.findProfessoresByEspecialidade(nomeEspecialidade); }
+    public List<Professor> findProfessoresByEspecialidade(String nomeEspecialidade){
+        return this.professorRepository.findProfessoresByEspecialidade(nomeEspecialidade);
+    }
 
     public Professor findById(Long id) { return this.professorRepository.findById(id).orElse(new Professor());}
 

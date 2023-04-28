@@ -30,6 +30,10 @@ public class TurmaService {
         return this.professorRepository.findAllProfessorByCurso(nomeCurso);
     }
 
+    public List<Professor> findAllProfessorBySemestreTurma(Integer semestreTurma) {
+        return this.professorRepository.findAllProfessorBySemestreTurma(semestreTurma);
+    }
+
     public List<Professor> findAllProfessorByAnoTurma(Integer anoTurma) {
         return this.professorRepository.findAllProfessorByAnoTurma(anoTurma);
     }

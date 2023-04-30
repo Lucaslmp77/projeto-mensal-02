@@ -55,10 +55,10 @@ public class AlunoService {
     public List<Aluno> findAllAlunoBySiglaCurso(String siglaCurso) {
         return this.alunoRepository.findAllAlunoBySiglaCurso(siglaCurso);
     }
-//
-//    public List<Aluno> findAllAlunoBySemestreTurma(Integer semestreTurma) {
-//        return this.alunoRepository.findAllAlunoBySemestreTurma(semestreTurma);
-//    }
+
+    public List<Aluno> findAllAlunoBySemestreTurma(Integer semestreTurma) {
+        return this.alunoRepository.findAllAlunoBySemestreTurma(semestreTurma);
+    }
 //
 //    public List<Aluno> findAllAlunoByAnoTurma(Integer anoTurma) {
 //        return this.alunoRepository.findAllAlunoByAnoTurma(anoTurma);

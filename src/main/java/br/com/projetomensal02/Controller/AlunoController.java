@@ -88,14 +88,14 @@ public class AlunoController {
     ) {
         return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySiglaCurso(siglaCurso));
     }
-//
-//    @GetMapping("/turma/semestre/{semestreTurma}")
-//    public ResponseEntity<?> findAllAlunoBySemestreTurma(
-//            @PathVariable("semestreTurma") Integer semestreTurma
-//    ) {
-//        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySemestreTurma(semestreTurma));
-//    }
-//
+
+    @GetMapping("/turma/semestre/{semestreTurma}")
+    public ResponseEntity<?> findAllAlunoBySemestreTurma(
+            @PathVariable("semestreTurma") Integer semestreTurma
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySemestreTurma(semestreTurma));
+    }
+
 //    @GetMapping("/turma/ano/{anoTurma}")
 //    public ResponseEntity<?> findAllAlunoByAnoTurma(
 //            @PathVariable("anoTurma") Integer anoTurma

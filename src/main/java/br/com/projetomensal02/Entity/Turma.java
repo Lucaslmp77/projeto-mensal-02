@@ -27,11 +27,14 @@ public class Turma extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(name = "aluno_id"))
     private List<Aluno> aluno;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToMany
     @Getter
     @Setter
-    @JoinColumn(name = "id_professor")
-    private Professor professor;
+    @JoinTable(
+            name = "turma_professor",
+            joinColumns = @JoinColumn(name = "turma_id"),
+            inverseJoinColumns = @JoinColumn(name = "professor_id"))
+    private List<Professor> professor;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @Getter

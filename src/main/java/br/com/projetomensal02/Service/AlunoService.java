@@ -64,7 +64,7 @@ public class AlunoService {
         return this.alunoRepository.findAllAlunoByAnoTurma(anoTurma);
     }
 
-//    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma) {
-//        return this.alunoRepository.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma);
-//    }
+    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma) {
+        return this.alunoRepository.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma);
+    }
 }

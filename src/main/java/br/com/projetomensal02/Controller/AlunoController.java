@@ -103,12 +103,12 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.findAllAlunoByAnoTurma(anoTurma));
     }
 
-//    @GetMapping("/cursoAndTurma/{nomeCurso}/{anoTurma}")
-//    public ResponseEntity<?> findAllAlunoByCursoAndTurma(
-//            @PathVariable("nomeCurso") String nomeCurso,
-//            @PathVariable("anoTurma") Integer anoTurma
-//    ) {
-//        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma));
-//    }
+    @GetMapping("/cursoAndTurma/{nomeCurso}/{anoTurma}")
+    public ResponseEntity<?> findAllAlunoByCursoAndTurma(
+            @PathVariable("nomeCurso") String nomeCurso,
+            @PathVariable("anoTurma") Integer anoTurma
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma));
+    }
 
 }

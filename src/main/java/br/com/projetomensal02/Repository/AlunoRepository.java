@@ -27,7 +27,6 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
     @Query("SELECT aluno FROM Aluno aluno INNER JOIN aluno.turma tur WHERE tur.ano = :anoTurma")
     public List<Aluno> findAllAlunoByAnoTurma(@Param("anoTurma")Integer anoTurma);
 
-//    @Query("SELECT aluno FROM Aluno aluno INNER JOIN Turma turma ON (turma.aluno.id = aluno.id)" +
-//            "WHERE turma.curso.nome = :nomeCurso AND turma.ano = :anoTurma")
-//    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma);
+    @Query("SELECT aluno FROM Aluno aluno INNER JOIN aluno.turma tur WHERE tur.curso.nome = :nomeCurso AND tur.ano = :anoTurma")
+    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma);
 }

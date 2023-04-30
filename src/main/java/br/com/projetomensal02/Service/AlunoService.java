@@ -52,19 +52,19 @@ public class AlunoService {
         return this.alunoRepository.findAllAlunoByCurso(nomeCurso);
     }
 
-    public List<Aluno> findAllAlunoBySiglaCurso(String siglaCurso) {
-        return this.alunoRepository.findAllAlunoBySiglaCurso(siglaCurso);
-    }
-
-    public List<Aluno> findAllAlunoBySemestreTurma(Integer semestreTurma) {
-        return this.alunoRepository.findAllAlunoBySemestreTurma(semestreTurma);
-    }
-
-    public List<Aluno> findAllAlunoByAnoTurma(Integer anoTurma) {
-        return this.alunoRepository.findAllAlunoByAnoTurma(anoTurma);
-    }
-
-    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma) {
-        return this.alunoRepository.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma);
-    }
+//    public List<Aluno> findAllAlunoBySiglaCurso(String siglaCurso) {
+//        return this.alunoRepository.findAllAlunoBySiglaCurso(siglaCurso);
+//    }
+//
+//    public List<Aluno> findAllAlunoBySemestreTurma(Integer semestreTurma) {
+//        return this.alunoRepository.findAllAlunoBySemestreTurma(semestreTurma);
+//    }
+//
+//    public List<Aluno> findAllAlunoByAnoTurma(Integer anoTurma) {
+//        return this.alunoRepository.findAllAlunoByAnoTurma(anoTurma);
+//    }
+//
+//    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma) {
+//        return this.alunoRepository.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma);
+//    }
 }

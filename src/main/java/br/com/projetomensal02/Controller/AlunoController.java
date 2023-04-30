@@ -82,33 +82,33 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCurso(nomeCurso));
     }
 
-    @GetMapping("/curso/sigla/{siglaCurso}")
-    public ResponseEntity<?> findAllAlunoBySiglaCurso(
-            @PathVariable("siglaCurso") String siglaCurso
-    ) {
-        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySiglaCurso(siglaCurso));
-    }
-
-    @GetMapping("/turma/semestre/{semestreTurma}")
-    public ResponseEntity<?> findAllAlunoBySemestreTurma(
-            @PathVariable("semestreTurma") Integer semestreTurma
-    ) {
-        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySemestreTurma(semestreTurma));
-    }
-
-    @GetMapping("/turma/ano/{anoTurma}")
-    public ResponseEntity<?> findAllAlunoByAnoTurma(
-            @PathVariable("anoTurma") Integer anoTurma
-    ) {
-        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByAnoTurma(anoTurma));
-    }
-
-    @GetMapping("/cursoAndTurma/{nomeCurso}/{anoTurma}")
-    public ResponseEntity<?> findAllAlunoByCursoAndTurma(
-            @PathVariable("nomeCurso") String nomeCurso,
-            @PathVariable("anoTurma") Integer anoTurma
-    ) {
-        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma));
-    }
+//    @GetMapping("/curso/sigla/{siglaCurso}")
+//    public ResponseEntity<?> findAllAlunoBySiglaCurso(
+//            @PathVariable("siglaCurso") String siglaCurso
+//    ) {
+//        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySiglaCurso(siglaCurso));
+//    }
+//
+//    @GetMapping("/turma/semestre/{semestreTurma}")
+//    public ResponseEntity<?> findAllAlunoBySemestreTurma(
+//            @PathVariable("semestreTurma") Integer semestreTurma
+//    ) {
+//        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySemestreTurma(semestreTurma));
+//    }
+//
+//    @GetMapping("/turma/ano/{anoTurma}")
+//    public ResponseEntity<?> findAllAlunoByAnoTurma(
+//            @PathVariable("anoTurma") Integer anoTurma
+//    ) {
+//        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByAnoTurma(anoTurma));
+//    }
+//
+//    @GetMapping("/cursoAndTurma/{nomeCurso}/{anoTurma}")
+//    public ResponseEntity<?> findAllAlunoByCursoAndTurma(
+//            @PathVariable("nomeCurso") String nomeCurso,
+//            @PathVariable("anoTurma") Integer anoTurma
+//    ) {
+//        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma));
+//    }
 
 }

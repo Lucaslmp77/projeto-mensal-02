@@ -23,8 +23,8 @@ public class Turma extends AbstractEntity {
     @Setter
     @JoinTable(
             name = "turma_aluno",
-            joinColumns = @JoinColumn(name = "turma_id"),
-            inverseJoinColumns = @JoinColumn(name = "aluno_id"))
+            joinColumns = @JoinColumn(name = "turma_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "aluno_id", nullable = false))
     private List<Aluno> aluno;
 
     @ManyToMany
@@ -32,14 +32,14 @@ public class Turma extends AbstractEntity {
     @Setter
     @JoinTable(
             name = "turma_professor",
-            joinColumns = @JoinColumn(name = "turma_id"),
-            inverseJoinColumns = @JoinColumn(name = "professor_id"))
+            joinColumns = @JoinColumn(name = "turma_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "professor_id", nullable = false))
     private List<Professor> professor;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @Getter
     @Setter
-    @JoinColumn(name = "id_curso")
+    @JoinColumn(name = "id_curso", nullable = false)
     private Curso curso;
 
     public Turma(Integer semestre, Integer ano) {

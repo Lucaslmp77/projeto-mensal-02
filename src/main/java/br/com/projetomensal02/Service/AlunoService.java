@@ -43,17 +43,27 @@ public class AlunoService {
             throw new RuntimeException();
         }
     }
-
-    public List<Aluno> findAlunoByNomeCurso(String nomeCurso) {
-        return this.alunoRepository.findAlunoByNomeCurso(nomeCurso);
-    }
-
-    public List<Aluno> findAlunoByIdTurma(Long idTurma) {
-        return this.alunoRepository.findAlunoByIdTurma(idTurma);
-    }
-
     public List<Aluno> findAlunoByNome(String nomeAluno) {
         return this.alunoRepository.findAlunoByNome(nomeAluno);
     }
 
+    public List<Aluno> findAllAlunoByCurso(String nomeCurso) {
+        return this.alunoRepository.findAllAlunoByCurso(nomeCurso);
+    }
+
+    public List<Aluno> findAllAlunoBySiglaCurso(String siglaCurso) {
+        return this.alunoRepository.findAllAlunoBySiglaCurso(siglaCurso);
+    }
+
+    public List<Aluno> findAllAlunoBySemestreTurma(Integer semestreTurma) {
+        return this.alunoRepository.findAllAlunoBySemestreTurma(semestreTurma);
+    }
+
+    public List<Aluno> findAllAlunoByAnoTurma(Integer anoTurma) {
+        return this.alunoRepository.findAllAlunoByAnoTurma(anoTurma);
+    }
+
+    public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma) {
+        return this.alunoRepository.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma);
+    }
 }

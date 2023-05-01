@@ -4,19 +4,18 @@ import br.com.projetomensal02.Entity.Aluno;
 import br.com.projetomensal02.Service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/aluno")
 public class AlunoController {
     @Autowired
     private AlunoService alunoService;
-    //Método de cadastrar alunos
+
     @PostMapping
     public ResponseEntity<?> save(
             @RequestBody Aluno aluno
@@ -29,15 +28,12 @@ public class AlunoController {
         }
     }
 
-    //Método de listar alunos
     @GetMapping
     public ResponseEntity<List<Aluno>> listAll(
 
     ) {
         return ResponseEntity.ok().body(this.alunoService.listAll());
     }
-
-    //Método de buscar alunos por id
 
     @GetMapping("/{idAluno}")
     public ResponseEntity<Aluno> findById(
@@ -46,7 +42,6 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.findById(idAluno));
     }
 
-    //Método de atualizar informações da aluno
     @PutMapping("/{idAluno}")
     public ResponseEntity<?> update(
             @PathVariable Long idAluno,
@@ -60,7 +55,6 @@ public class AlunoController {
         }
     }
 
-    //Método de deletar alunos
     @DeleteMapping("/delete/{idAluno}")
     public ResponseEntity<?> delete(
             @PathVariable Long idAluno,
@@ -74,19 +68,47 @@ public class AlunoController {
         }
     }
 
-    //Método de buscar aluno por curso
-    @GetMapping("/curso/{nomeCurso}")
-    public ResponseEntity<?> findAlunoByNomeCurso(
-            @PathVariable("nomeCurso") String nomeCurso
-    ) {
-        return ResponseEntity.ok().body(this.alunoService.findAlunoByNomeCurso(nomeCurso));
-    }
-
-    //Método de buscar aluno por nome
     @GetMapping("/nome/{nome}")
     public ResponseEntity<?> findAlunoByNome(
             @PathVariable("nome") String nome
     ) {
         return ResponseEntity.ok().body(this.alunoService.findAlunoByNome(nome));
     }
+
+    @GetMapping("/curso/nome/{nomeCurso}")
+    public ResponseEntity<?> findAllAlunoByCurso(
+            @PathVariable("nomeCurso") String nomeCurso
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCurso(nomeCurso));
+    }
+
+    @GetMapping("/curso/sigla/{siglaCurso}")
+    public ResponseEntity<?> findAllAlunoBySiglaCurso(
+            @PathVariable("siglaCurso") String siglaCurso
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySiglaCurso(siglaCurso));
+    }
+
+    @GetMapping("/turma/semestre/{semestreTurma}")
+    public ResponseEntity<?> findAllAlunoBySemestreTurma(
+            @PathVariable("semestreTurma") Integer semestreTurma
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoBySemestreTurma(semestreTurma));
+    }
+
+    @GetMapping("/turma/ano/{anoTurma}")
+    public ResponseEntity<?> findAllAlunoByAnoTurma(
+            @PathVariable("anoTurma") Integer anoTurma
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByAnoTurma(anoTurma));
+    }
+
+    @GetMapping("/cursoAndTurma/{nomeCurso}/{anoTurma}")
+    public ResponseEntity<?> findAllAlunoByCursoAndTurma(
+            @PathVariable("nomeCurso") String nomeCurso,
+            @PathVariable("anoTurma") Integer anoTurma
+    ) {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma));
+    }
+
 }

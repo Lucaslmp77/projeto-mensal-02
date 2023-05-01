@@ -5,7 +5,7 @@ import br.com.projetomensal02.Repository.ProfessorRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
+
 
 import java.util.List;
 
@@ -15,14 +15,6 @@ public class ProfessorService {
     private ProfessorRepository professorRepository;
 
     public List<Professor> listAll(){ return this.professorRepository.findAll(); }
-
-    public List<Professor> findProfessoresByNomeCurso(String nomeCurso){ return this.professorRepository.findProfessoresByNomeCurso(nomeCurso); }
-
-    public List<Professor> findProfessoresByIdTurma(Long idTurma){ return this.professorRepository.findProfessoresByIdTurma(idTurma); }
-
-    public List<Professor> findProfessoresByNome(String nomeProfessor){ return this.professorRepository.findProfessoresByNome(nomeProfessor); }
-
-    public List<Professor> findProfessoresByEspecialidade(String nomeEspecialidade){ return this.professorRepository.findProfessoresByEspecialidade(nomeEspecialidade); }
 
     public Professor findById(Long id) { return this.professorRepository.findById(id).orElse(new Professor());}
 
@@ -47,4 +39,31 @@ public class ProfessorService {
         }
     }
 
+    public List<Professor> findProfessoresByNome(String nomeProfessor){
+        return this.professorRepository.findProfessoresByNome(nomeProfessor);
+    }
+
+    public List<Professor> findProfessoresByEspecialidade(String nomeEspecialidade){
+        return this.professorRepository.findProfessoresByEspecialidade(nomeEspecialidade);
+    }
+
+    public List<Professor> findAllProfessorByCurso(String nomeCurso) {
+        return this.professorRepository.findAllProfessorByCurso(nomeCurso);
+    }
+
+    public List<Professor> findAllProfessorBySiglaCurso(String siglaCurso) {
+        return this.professorRepository.findAllProfessorBySiglaCurso(siglaCurso);
+    }
+
+    public List<Professor> findAllProfessorBySemestreTurma(Integer semestreTurma) {
+        return this.professorRepository.findAllProfessorBySemestreTurma(semestreTurma);
+    }
+
+    public List<Professor> findAllProfessorByAnoTurma(Integer anoTurma) {
+        return this.professorRepository.findAllProfessorByAnoTurma(anoTurma);
+    }
+
+    public List<Professor> findAllProfessorByCursoAndTurma(String nomeCurso, Integer anoTurma) {
+        return this.professorRepository.findAllProfessorByCursoAndTurma(nomeCurso, anoTurma);
+    }
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_turma", schema = "projeto-mensal-02")
 public class Turma extends AbstractEntity {
@@ -16,17 +18,23 @@ public class Turma extends AbstractEntity {
     @Column(name = "ano", length = 10, nullable = false)
     private Integer ano;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToMany
     @Getter
     @Setter
-    @JoinColumn(name = "id_aluno")
-    private Aluno aluno;
+    @JoinTable(
+            name = "turma_aluno",
+            joinColumns = @JoinColumn(name = "turma_id"),
+            inverseJoinColumns = @JoinColumn(name = "aluno_id"))
+    private List<Aluno> aluno;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToMany
     @Getter
     @Setter
-    @JoinColumn(name = "id_professor")
-    private Professor professor;
+    @JoinTable(
+            name = "turma_professor",
+            joinColumns = @JoinColumn(name = "turma_id"),
+            inverseJoinColumns = @JoinColumn(name = "professor_id"))
+    private List<Professor> professor;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @Getter
@@ -59,7 +67,7 @@ public class Turma extends AbstractEntity {
             throw new RuntimeException("O ano inserido é nulo");
         } else if (ano <= 0) {
             throw new RuntimeException("O ano inserido é muito curto");
-        } else if (ano > 10) {
+        } else if (ano > 3000) {
             throw new RuntimeException("O ano inserido ultrapassa o limite máximo");
         } else {
             this.ano = ano;

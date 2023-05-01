@@ -17,23 +17,19 @@ public interface ProfessorRepository extends JpaRepository<Professor, Long> {
     @Query("FROM Professor professor WHERE professor.especialidade = :nomeEspecialidade")
     public List<Professor> findProfessoresByEspecialidade(@Param("nomeEspecialidade") String nomeEspecialidade);
 
-    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
-            "WHERE turma.curso.nome = :nomeCurso")
+    @Query("SELECT professor FROM Professor professor INNER JOIN professor.turma prof WHERE prof.curso.nome = :nomeCurso")
     public List<Professor> findAllProfessorByCurso(@Param("nomeCurso")String nomeCurso);
 
-    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
-            "WHERE turma.curso.sigla = :siglaCurso")
+    @Query("SELECT professor FROM Professor professor INNER JOIN professor.turma prof WHERE prof.curso.sigla = :siglaCurso")
     public List<Professor> findAllProfessorBySiglaCurso(@Param("siglaCurso")String siglaCurso);
 
-    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
-            "WHERE turma.semestre = :semestreTurma")
+    @Query("SELECT professor FROM Professor professor INNER JOIN professor.turma prof WHERE prof.semestre = :semestreTurma")
     public List<Professor> findAllProfessorBySemestreTurma(@Param("semestreTurma")Integer semestreTurma);
 
-    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
-            "WHERE turma.ano = :anoTurma")
+    @Query("SELECT professor FROM Professor professor INNER JOIN professor.turma prof WHERE prof.ano = :anoTurma")
     public List<Professor> findAllProfessorByAnoTurma(@Param("anoTurma")Integer anoTurma);
 
-    @Query("SELECT professor FROM Professor professor INNER JOIN Turma turma ON (turma.professor.id = professor.id)" +
-            "WHERE turma.curso.nome = :nomeCurso AND turma.ano = :anoTurma")
+    @Query("SELECT professor FROM Professor professor INNER JOIN professor.turma prof WHERE prof.curso.nome = :nomeCurso" +
+            " AND prof.ano = :anoTurma")
     public List<Professor> findAllProfessorByCursoAndTurma(String nomeCurso, Integer anoTurma);
 }

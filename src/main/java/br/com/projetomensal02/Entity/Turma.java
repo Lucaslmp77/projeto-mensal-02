@@ -39,7 +39,7 @@ public class Turma extends AbstractEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @Getter
     @Setter
-    @JoinColumn(name = "id_curso")
+    @JoinColumn(name = "id_curso", nullable = false)
     private Curso curso;
 
     public Turma(Integer semestre, Integer ano) {

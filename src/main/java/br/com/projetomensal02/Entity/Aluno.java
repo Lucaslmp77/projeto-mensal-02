@@ -1,9 +1,12 @@
 package br.com.projetomensal02.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 @Builder
+
+import java.util.List;
 
 
 @Entity
@@ -31,6 +34,12 @@ public class Aluno extends AbstractEntity {
     @Getter
     @Column(name = "endereco", length = 30, nullable = false)
     private String endereco;
+
+    @ManyToMany(mappedBy = "aluno")
+    @Getter
+    @Setter
+    @JsonIgnore
+    private List<Turma> turma;
 
     public void setNome(String nome) {
         if(nome == null) {

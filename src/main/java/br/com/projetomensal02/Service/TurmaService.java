@@ -1,5 +1,6 @@
 package br.com.projetomensal02.Service;
 
+import br.com.projetomensal02.Entity.Aluno;
 import br.com.projetomensal02.Entity.Turma;
 import br.com.projetomensal02.Repository.TurmaRepository;
 import jakarta.transaction.Transactional;
@@ -18,7 +19,13 @@ public class TurmaService {
     public Turma findById(Long id){ return this.turmaRepository.findById(id).orElse(new Turma()); }
 
     @Transactional
-    public Turma save(Turma turma){ return this.turmaRepository.save(turma);}
+    public Turma save(Turma turma){
+        if (turma.getAluno().size() >= 1 && turma.getProfessor().size() >= 1) {
+            return this.turmaRepository.save(turma);
+        } else {
+            throw new RuntimeException();
+        }
+    }
 
     @Transactional
     public void update(Long id, Turma turma){

@@ -91,4 +91,12 @@ public class AlunoController {
         return ResponseEntity.ok().body(this.alunoService.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma));
     }
 
+    @GetMapping("/semestreAndAno/{numeroSemestre}/{anoTurma}")
+    public ResponseEntity<?> findAllAlunoByAnoAndSemestre(
+            @PathVariable("numeroSemestre") Integer numeroSemestre,
+            @PathVariable("anoTurma") Integer anoTurma)
+    {
+        return ResponseEntity.ok().body(this.alunoService.findAllAlunoByAnoAndSemestre(numeroSemestre, anoTurma));
+    }
+
 }

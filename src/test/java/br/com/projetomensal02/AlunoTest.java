@@ -121,7 +121,7 @@ public class AlunoTest {
     //Testes de integração
 
     @Test
-    @DisplayName("Deve haver apenas 3 turmas em aluno")
+    @DisplayName("Deve haver apenas 3 turmas dentro da classe aluno")
     public void adicionarTurmasEmAlunos() {
 
         Turma turma1 = new Turma(1,2020);
@@ -138,7 +138,7 @@ public class AlunoTest {
     }
 
     @Test
-    @DisplayName("Deve remover apenas 1 turma em aluno")
+    @DisplayName("Deve remover apenas 1 turma dentro da classe aluno")
     public void remover1TurmasEmAluno(){
 
         Turma turma1 = new Turma(1,2020);
@@ -158,7 +158,7 @@ public class AlunoTest {
     }
 
     @Test
-    @DisplayName("Deve remover apenas 3 turma em aluno")
+    @DisplayName("Deve remover apenas 3 turma dentro da classe aluno")
     public void remover3TurmasEmProfessor(){
 
         Turma turma1 = new Turma(1,2020);
@@ -184,7 +184,7 @@ public class AlunoTest {
     }
 
     @Test
-    @DisplayName("Deve retornar a turma buscada em aluno")
+    @DisplayName("Deve retornar a turma buscada dentro da classe aluno")
     public void buscarTurmaPorSemestreEmProfessor(){
 
         Turma turma1 = new Turma(1,2020);
@@ -203,7 +203,7 @@ public class AlunoTest {
     }
 
     @Test
-    @DisplayName("Buscar Turma Por Ano Em aluno")
+    @DisplayName("Buscar Turma Por Ano dentro da classe aluno")
     public void buscarTurmaPorAnoEmProfessor(){
 
         Turma turma1 = new Turma(1,2020);
@@ -222,7 +222,7 @@ public class AlunoTest {
     }
 
     @Test
-    @DisplayName("Deve retornar o Ano especificado em aluno")
+    @DisplayName("Deve retornar o Ano especificado dentro da classe aluno")
     public void retornarAnoEmProfessor(){
 
         Turma turma1 = new Turma(1,2020);

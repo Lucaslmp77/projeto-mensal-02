@@ -1,9 +1,10 @@
 package br.com.projetomensal02.Entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
+//@Builder
 @Entity
 @Table(name = "tb_turma", schema = "projeto-mensal-02")
 public class Turma extends AbstractEntity {

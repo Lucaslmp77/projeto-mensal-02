@@ -37,7 +37,6 @@ public class Aluno extends AbstractEntity {
     private String endereco;
 
     @ManyToMany(mappedBy = "aluno")
-
     @JsonIgnore
     private List<Turma> turma;
 

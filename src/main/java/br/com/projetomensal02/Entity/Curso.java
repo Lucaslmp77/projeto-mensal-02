@@ -1,9 +1,10 @@
 package br.com.projetomensal02.Entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
-
+@Builder
 @Entity
 @Table(name = "tb_curso", schema = "projeto-mensal-02")
 public class Curso extends AbstractEntity {

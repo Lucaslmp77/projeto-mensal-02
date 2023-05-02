@@ -59,7 +59,7 @@ public class AlunoTest {
     @DisplayName("Não deve retornar o nome do aluno tendo mais de 25 letras")
     public void naoDeveRetornarNomeDoAlunoMaiorQue25Letras() {
 
-        Assertions.assertThrows(RuntimeException.class, () -> aluno.setNome("Rodrigo Ferreira Lópes Silvio Da Silva"));
+        Assertions.assertThrows(RuntimeException.class, () -> aluno.setNome("Rodrigo Ferreira Silvio Valerio Da Silva"));
     }
     //Idade
     @Test

@@ -9,6 +9,7 @@ import br.com.projetomensal02.Repository.CursoRepository;
 import br.com.projetomensal02.Repository.ProfessorRepository;
 import br.com.projetomensal02.Repository.TurmaRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Builder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@Builder
 class AlunoIntTest {
 
     @Autowired

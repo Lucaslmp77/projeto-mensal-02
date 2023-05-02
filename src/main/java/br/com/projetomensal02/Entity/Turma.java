@@ -1,8 +1,11 @@
 package br.com.projetomensal02.Entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+//@Builder
 
 import java.util.List;
 

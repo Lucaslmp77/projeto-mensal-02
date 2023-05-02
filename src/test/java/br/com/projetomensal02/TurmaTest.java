@@ -78,9 +78,9 @@ public class TurmaTest {
     }
 
     @Test
-    @DisplayName("Não deve receber valor de ano maior que 10")
-    public void naoDeveReceberAnoMaiorQueDez() {
-        Assertions.assertThrows(RuntimeException.class, () -> turma.setAno(11));
+    @DisplayName("Não deve receber valor de ano com o tamanho maior ou igual a 5")
+    public void naoDeveReceberAnoMaiorOuIgualaCinco() {
+        Assertions.assertThrows(RuntimeException.class, () -> turma.setAno(20233));
     }
 
     // Teste de integração //

@@ -18,7 +18,7 @@ public class Turma extends AbstractEntity {
     private Integer semestre;
 
     @Getter
-    @Column(name = "ano", length = 10, nullable = false)
+    @Column(name = "ano", length = 5, nullable = false)
     private Integer ano;
 
     @ManyToMany

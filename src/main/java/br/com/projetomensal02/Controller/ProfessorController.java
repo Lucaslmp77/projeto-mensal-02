@@ -55,11 +55,10 @@ public class ProfessorController {
 
     @DeleteMapping("/delete/{idProfessor}")
     public ResponseEntity<?> delete(
-            @PathVariable Long idProfessor,
-            @RequestBody Professor professor
+            @PathVariable Long idProfessor
     ){
         try{
-            this.professorService.delete(idProfessor,professor);
+            this.professorService.delete(idProfessor);
             return ResponseEntity.ok().body("Professor deletado com sucesso!");
         }catch(RuntimeException e){
             return ResponseEntity.badRequest().body(e.getMessage());

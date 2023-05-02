@@ -37,9 +37,10 @@ public class TurmaService {
     }
 
     @Transactional
-    public void delete(Long id, Turma turma){
-        if (id==turma.getId()){
-            this.turmaRepository.delete(turma);
+    public void delete(Long id){
+        var turma = this.turmaRepository.findById(id);
+        if (id == turma.get().getId()){
+            this.turmaRepository.deleteById(id);
         } else {
             throw new RuntimeException();
         }

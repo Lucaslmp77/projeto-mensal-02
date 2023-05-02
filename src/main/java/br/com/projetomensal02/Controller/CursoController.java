@@ -55,12 +55,10 @@ public class CursoController {
 
     @DeleteMapping("/delete/{idCurso}")
     public ResponseEntity<?> delete(
-            @PathVariable Long idCurso,
-            @RequestBody Curso curso
-    ) {
+            @PathVariable Long idCurso) {
         try {
-            this.cursoService.delete(idCurso, curso);
-            return ResponseEntity.ok().body("Curso deletada com sucesso!");
+            this.cursoService.delete(idCurso);
+            return ResponseEntity.ok().body("Curso deletado com sucesso!");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

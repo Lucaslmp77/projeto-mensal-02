@@ -34,7 +34,13 @@ public class AlunoService {
 
     @Transactional
     public void delete(Long id) {
-        this.alunoRepository.deleteById(id);
+        var aluno = this.alunoRepository.findById(id);
+        if (id == aluno.get().getId()) {
+            this.alunoRepository.deleteById(id);
+        } else {
+            throw new RuntimeException();
+        }
+
     }
     public List<Aluno> findAlunoByNome(String nomeAluno) {
         return this.alunoRepository.findAlunoByNome(nomeAluno);

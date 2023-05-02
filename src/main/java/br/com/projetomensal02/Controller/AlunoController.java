@@ -55,7 +55,7 @@ public class AlunoController {
     public ResponseEntity<?> delete(@PathVariable Long idAluno) {
         try {
             this.alunoService.delete(idAluno);
-            return ResponseEntity.ok().body("Aluno deletada com sucesso!");
+            return ResponseEntity.ok().body("Aluno deletado com sucesso!");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

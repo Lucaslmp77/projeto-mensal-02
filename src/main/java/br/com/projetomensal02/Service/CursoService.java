@@ -36,9 +36,10 @@ public class CursoService {
     }
 
     @Transactional
-    public void delete(Long id, Curso curso) {
-        if(id == curso.getId()) {
-            this.cursoRepository.delete(curso);
+    public void delete(Long id) {
+        var curso = this.cursoRepository.findById(id);
+        if(id == curso.get().getId()) {
+            this.cursoRepository.deleteById(id);
         } else {
             throw new RuntimeException();
         }

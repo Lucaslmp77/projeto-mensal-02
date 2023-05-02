@@ -28,8 +28,11 @@ public class AlunoService {
 
     @Transactional
     public void update(Long id, Aluno aluno) {
-        aluno.setId(id);
-        this.alunoRepository.save(aluno);
+        if(id == aluno.getId()) {
+            this.alunoRepository.save(aluno);
+        } else {
+            throw new RuntimeException();
+        }
     }
 
     @Transactional

@@ -61,6 +61,14 @@ public class AlunoTest {
 
         Assertions.assertThrows(RuntimeException.class, () -> aluno.setNome("Rodrigo Ferreira Silvio Valerio Da Silva"));
     }
+
+    @Test
+    @DisplayName("Não deve cadastrar um aluno com o nome composto por números")
+    public void NaoDeveCadastrarAlunoComNomeCompostoPorNumeros() {
+
+        Assertions.assertThrows(RuntimeException.class, () -> aluno.setNome("5353"));
+    }
+
     //Idade
     @Test
     @DisplayName("Retornar idade do aluno")

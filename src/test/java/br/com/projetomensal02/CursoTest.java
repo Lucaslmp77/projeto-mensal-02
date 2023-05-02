@@ -59,6 +59,13 @@ public class CursoTest {
     }
 
     @Test
+    @DisplayName("Não deve cadastrar um curso com o nome composto por números")
+    public void NaoDeveCadastrarCursoComNomeCompostoPorNumeros() {
+
+        Assertions.assertThrows(RuntimeException.class, () -> curso.setNome("5353"));
+    }
+
+    @Test
     @DisplayName("Deve retornar a sigla")
     public void deveRetornarASigla() {
 

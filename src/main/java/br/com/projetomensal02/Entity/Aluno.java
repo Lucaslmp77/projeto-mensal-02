@@ -49,7 +49,10 @@ public class Aluno extends AbstractEntity {
             throw new RuntimeException("O nome do aluno inserido é muito curto");
         } else if (nome.trim().length() > 25) {
             throw new RuntimeException("O nome do aluno inserido ultrapassa o limite máximo");
-        } else {
+        } else if (nome.matches("[0-9]+")) {
+            throw new RuntimeException("O nome do aluno inserido é composto por números");
+        }
+        else {
             this.nome = nome;
         }
     }

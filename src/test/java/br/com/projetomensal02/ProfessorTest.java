@@ -57,6 +57,13 @@ public class ProfessorTest {
 
         Assertions.assertThrows(RuntimeException.class, () -> professor.setNome("Valdomiro Pereira Felipe Dos Santos Domingues"));
     }
+
+    @Test
+    @DisplayName("Não deve cadastrar um professor com o nome composto por números")
+    public void NaoDeveCadastrarProfessorComNomeCompostoPorNumeros() {
+
+        Assertions.assertThrows(RuntimeException.class, () -> professor.setNome("5353"));
+    }
     //Endereço
     @Test
     @DisplayName("deve retornar o endereço do profesor")

@@ -45,6 +45,8 @@ public class Professor extends AbstractEntity {
             throw new RuntimeException("O nome do professor inserido é muito curto");
         } else if (nome.trim().length() > 25) {
             throw new RuntimeException("O nome do professor inserido ultrapassa o limite máximo");
+        } else if (nome.matches("[0-9]+")) {
+            throw new RuntimeException("O nome do professor inserido é composto por números");
         } else {
             this.nome = nome;
         }

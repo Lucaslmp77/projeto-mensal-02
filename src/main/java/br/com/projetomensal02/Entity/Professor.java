@@ -2,9 +2,11 @@ package br.com.projetomensal02.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+@Builder
 import java.util.List;
 
 @Entity

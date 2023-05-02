@@ -28,20 +28,13 @@ public class AlunoService {
 
     @Transactional
     public void update(Long id, Aluno aluno) {
-        if(id == aluno.getId()) {
-            this.alunoRepository.save(aluno);
-        } else {
-            throw new RuntimeException();
-        }
+        aluno.setId(id);
+        this.alunoRepository.save(aluno);
     }
 
     @Transactional
-    public void delete(Long id, Aluno aluno) {
-        if(id == aluno.getId()) {
-            this.alunoRepository.delete(aluno);
-        } else {
-            throw new RuntimeException();
-        }
+    public void delete(Long id) {
+        this.alunoRepository.deleteById(id);
     }
     public List<Aluno> findAlunoByNome(String nomeAluno) {
         return this.alunoRepository.findAlunoByNome(nomeAluno);

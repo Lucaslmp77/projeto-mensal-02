@@ -2,8 +2,9 @@ package br.com.projetomensal02.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+@Builder
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Aluno extends AbstractEntity {
         this.idade = idade;
         this.endereco = endereco;
     }
+
 
     public Aluno() {
     }

@@ -56,11 +56,10 @@ public class TurmaController {
 
     @DeleteMapping("/delete/{idTurma}")
     public ResponseEntity<?> delete(
-            @PathVariable Long idTurma,
-            @RequestBody Turma turma
+            @PathVariable Long idTurma
     ) {
         try {
-            this.turmaService.delete(idTurma, turma);
+            this.turmaService.delete(idTurma);
             return ResponseEntity.ok().body("Turma deletada com sucesso!");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

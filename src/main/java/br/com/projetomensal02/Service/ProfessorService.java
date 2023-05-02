@@ -31,9 +31,10 @@ public class ProfessorService {
     }
 
     @Transactional
-    public void delete(Long id, Professor professor){
-        if (id==professor.getId()){
-            this.professorRepository.delete(professor);
+    public void delete(Long id){
+        var professor = this.professorRepository.findById(id);
+        if (id == professor.get().getId()){
+            this.professorRepository.deleteById(id);
         } else {
             throw new RuntimeException();
         }

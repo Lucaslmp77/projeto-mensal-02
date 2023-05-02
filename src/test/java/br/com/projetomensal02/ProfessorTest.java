@@ -1,6 +1,11 @@
 package br.com.projetomensal02;
 import br.com.projetomensal02.Entity.Professor;
+import br.com.projetomensal02.Entity.Turma;
 import org.junit.jupiter.api.*;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
 public class ProfessorTest {
 
     private Professor professor;
@@ -51,6 +56,13 @@ public class ProfessorTest {
     public void naoDeveRetornarNomeDoProfessorMaiorQue25Letras() {
 
         Assertions.assertThrows(RuntimeException.class, () -> professor.setNome("Valdomiro Pereira Felipe Dos Santos Domingues"));
+    }
+
+    @Test
+    @DisplayName("Não deve cadastrar um professor com o nome composto por números")
+    public void NaoDeveCadastrarProfessorComNomeCompostoPorNumeros() {
+
+        Assertions.assertThrows(RuntimeException.class, () -> professor.setNome("5353"));
     }
     //Endereço
     @Test
@@ -114,4 +126,127 @@ public class ProfessorTest {
 
         Assertions.assertThrows(RuntimeException.class, () -> professor.setEspecialidade("Programador Full Stack Especializado em react com angular e sql"));
     }
+
+    //Testes de integração
+
+    @Test
+    @DisplayName("Deve haver 3 turmas em professor")
+    public void adicionarTurmasEmProfessor(){
+
+        Turma turma1 = new Turma(1,2020);
+        Turma turma12 = new Turma(2,2021);
+        Turma turma123 = new Turma(3,2022);
+
+        ArrayList<Turma> turmas = new ArrayList<>();
+        turmas.add(turma1);
+        turmas.add(turma12);
+        turmas.add(turma123);
+        professor.setTurma(turmas);
+
+        Assertions.assertEquals(3, professor.getTurma().size(),"Deve haver 3 turmas em professor");
+    }
+
+    @Test
+    @DisplayName("Deve remover apenas 1 turma em professor")
+    public void remover1TurmasEmProfessor(){
+
+        Turma turma1 = new Turma(1,2020);
+        Turma turma12 = new Turma(2,2021);
+        Turma turma123 = new Turma(3,2022);
+
+        ArrayList<Turma> turmas = new ArrayList<>();
+        turmas.add(turma1);
+        turmas.add(turma12);
+        turmas.add(turma123);
+        professor.setTurma(turmas);
+
+        boolean removido = professor.getTurma().remove(turma1);
+
+        Assertions.assertTrue(removido, "Deve remover a 'turma1' com sucesso");
+        Assertions.assertEquals(2, professor.getTurma().size(),"Deve retornar 2 turmas no professor");
+    }
+
+    @Test
+    @DisplayName("Deve remover apenas 3 turma em professor")
+    public void remover3TurmasEmProfessor(){
+
+        Turma turma1 = new Turma(1,2020);
+        Turma turma12 = new Turma(2,2021);
+        Turma turma123 = new Turma(3,2022);
+
+        ArrayList<Turma> turmas = new ArrayList<>();
+        turmas.add(turma1);
+        turmas.add(turma12);
+        turmas.add(turma123);
+        professor.setTurma(turmas);
+
+        boolean removido1 = professor.getTurma().remove(turma1);
+        boolean removido12 = professor.getTurma().remove(turma12);
+        boolean removido123 = professor.getTurma().remove(turma123);
+
+
+        Assertions.assertTrue(removido1, "Deve remover a 'turma1' com sucesso");
+        Assertions.assertTrue(removido12, "Deve remover a 'turma12' com sucesso");
+        Assertions.assertTrue(removido123, "Deve remover a 'turma123' com sucesso");
+
+        Assertions.assertEquals(0, professor.getTurma().size(),"Deve retornar 0 turmas no professor");
+    }
+
+    @Test
+    @DisplayName("Deve retornar a turma buscada em professor")
+    public void buscarTurmaPorSemestreEmProfessor(){
+
+        Turma turma1 = new Turma(1,2020);
+        Turma turma12 = new Turma(2,2021);
+        Turma turma123 = new Turma(3,2022);
+
+        ArrayList<Turma> turmas = new ArrayList<>();
+        turmas.add(turma1);
+        turmas.add(turma12);
+        turmas.add(turma123);
+        professor.setTurma(turmas);
+
+        Optional<Turma> turmaEncontrada = professor.getTurma().stream().filter(turma -> turma.getSemestre().equals(1)).findFirst();
+
+        Assertions.assertTrue(turmaEncontrada.isPresent(),"Deve encontrar o Semestre 1");
+    }
+
+    @Test
+    @DisplayName("Buscar Turma Por Ano Em Professor")
+    public void buscarTurmaPorAnoEmProfessor(){
+
+        Turma turma1 = new Turma(1,2020);
+        Turma turma12 = new Turma(2,2021);
+        Turma turma123 = new Turma(3,2022);
+
+        ArrayList<Turma> turmas = new ArrayList<>();
+        turmas.add(turma1);
+        turmas.add(turma12);
+        turmas.add(turma123);
+        professor.setTurma(turmas);
+
+        Optional<Turma> turmaEncontrada = professor.getTurma().stream().filter(turma -> turma.getAno().equals(2020)).findFirst();
+
+        Assertions.assertTrue(turmaEncontrada.isPresent(),"Deve encontrar o Ano 2020");
+    }
+
+    @Test
+    @DisplayName("Deve retornar o Ano especificado em professor")
+    public void retornarAnoEmProfessor(){
+
+        Turma turma1 = new Turma(1,2020);
+        Turma turma12 = new Turma(2,2021);
+        Turma turma123 = new Turma(3,2022);
+
+        ArrayList<Turma> turmas = new ArrayList<>();
+        turmas.add(turma1);
+        turmas.add(turma12);
+        turmas.add(turma123);
+        professor.setTurma(turmas);
+
+        Optional<Turma> turmaEncontrada = professor.getTurma().stream().filter(turma -> turma.getAno().equals(2022)).findFirst();
+
+        Assertions.assertEquals(2022,turmaEncontrada.get().getAno(),"O ano encontrado deve ser 2022");
+    }
+
 }

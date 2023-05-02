@@ -36,12 +36,14 @@ public class AlunoService {
     }
 
     @Transactional
-    public void delete(Long id, Aluno aluno) {
-        if(id == aluno.getId()) {
-            this.alunoRepository.delete(aluno);
+    public void delete(Long id) {
+        var aluno = this.alunoRepository.findById(id);
+        if (id == aluno.get().getId()) {
+            this.alunoRepository.deleteById(id);
         } else {
             throw new RuntimeException();
         }
+
     }
     public List<Aluno> findAlunoByNome(String nomeAluno) {
         return this.alunoRepository.findAlunoByNome(nomeAluno);
@@ -65,5 +67,9 @@ public class AlunoService {
 
     public List<Aluno> findAllAlunoByCursoAndTurma(String nomeCurso, Integer anoTurma) {
         return this.alunoRepository.findAllAlunoByCursoAndTurma(nomeCurso, anoTurma);
+    }
+
+    public List<Aluno> findAllAlunoByAnoAndSemestre(Integer numeroSemestre, Integer anoTurma) {
+        return this.alunoRepository.findAllAlunoByAnoAndSemestre(numeroSemestre, anoTurma);
     }
 }

@@ -1,9 +1,10 @@
 package br.com.projetomensal02.Entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
-
+@Builder
 @Entity
 @Table(name = "tb_curso", schema = "projeto-mensal-02")
 public class Curso extends AbstractEntity {
@@ -33,6 +34,8 @@ public class Curso extends AbstractEntity {
             throw new RuntimeException("O nome do curso inserido é muito curto");
         } else if (nome.trim().length() > 25) {
             throw new RuntimeException("O nome do curso inserido ultrapassa o limite máximo");
+        } else if (nome.matches("[0-9]+")) {
+            throw new RuntimeException("O nome do curso inserido é composto por números");
         } else {
             this.nome = nome;
         }

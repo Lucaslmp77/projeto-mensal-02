@@ -1,14 +1,23 @@
 package br.com.projetomensal02.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 
 @Entity
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tb_aluno", schema = "projeto-mensal-02")
 public class Aluno extends AbstractEntity {
 
@@ -18,24 +27,16 @@ public class Aluno extends AbstractEntity {
         this.endereco = endereco;
     }
 
-    public Aluno() {
-    }
-
-    @Getter
     @Column(name = "nome", length = 25, nullable = false)
     private String nome;
 
-    @Getter
     @Column(name = "idade", length = 25, nullable = false)
     private Integer idade;
 
-    @Getter
     @Column(name = "endereco", length = 30, nullable = false)
     private String endereco;
 
     @ManyToMany(mappedBy = "aluno")
-    @Getter
-    @Setter
     @JsonIgnore
     private List<Turma> turma;
 
@@ -48,7 +49,10 @@ public class Aluno extends AbstractEntity {
             throw new RuntimeException("O nome do aluno inserido é muito curto");
         } else if (nome.trim().length() > 25) {
             throw new RuntimeException("O nome do aluno inserido ultrapassa o limite máximo");
-        } else {
+        } else if (nome.matches("[0-9]+")) {
+            throw new RuntimeException("O nome do aluno inserido é composto por números");
+        }
+        else {
             this.nome = nome;
         }
     }

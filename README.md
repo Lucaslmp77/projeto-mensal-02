@@ -12,7 +12,7 @@ Trata-se de um CRUD (Create, Read, Update, Delete), para as classes representada
 
 ![diagrama-projeto-mensal2](https://raw.githubusercontent.com/gist/Lucaslmp77/650338e1cdb9a4c4d180d2cacf469809/raw/439f20d8cc2abdd5060e518fe71a21e8e8a37fa7/diagramaClasses.svg)
 
-Ainda mais, foi requisitado alguns end-points específicos em relação ao vínculo de relacionamento entre as classes e seus atríbutos, conforme imagem abaixo:
+Ainda mais, foram requisitados alguns end-points específicos em relação ao vínculo de relacionamento entre as classes e seus atríbutos, conforme imagem abaixo:
 
 ![end-points-projeto-mensal2](https://raw.githubusercontent.com/gist/Lucaslmp77/c3bbe1c3d4f9e786033528644eed260c/raw/eb511e32dd128aa9f0613a2554d7e7d0dfd3ec76/endPoints.svg)
 
